@@ -1,8 +1,15 @@
-function fn(...c) {
-  if (!c.every((a) => Number.isNumber(a)))
-    throw "All arguments must be numbers.";
-  return c.reduce((a, b) => a + b);
-}
-
-fn(1, 2, 3); //> 6
-fn(10, "B", 20); //> error All arguments must be numbers.
+function sumNumbers(...numbers) {
+    if (!numbers.every((num) => typeof num === 'number')) {
+      throw new Error('All arguments must be numbers.');
+    }
+    
+    return numbers.reduce((total, num) => total + num, 0);
+  }
+  
+  try {
+    console.log(sumNumbers(1, 2, 3)); 
+    console.log(sumNumbers(10, "B", 20)); 
+  } catch (error) {
+    console.error(error.message);
+  }
+  
