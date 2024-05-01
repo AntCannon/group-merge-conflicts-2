@@ -1,8 +1,8 @@
-function fn(...c) {
-  if (!c.every((a) => Number.isNumber(a)))
-    throw "All arguments must be numbers.";
-  return c.reduce((a, b) => a + b);
+function isNumber(nums) {
+  if (!nums.every((num) => Number.isInteger(num))) {
+    throw new Error("All arguments must be numbers.");
+  }
+  return nums.reduce((a, b) => a + b);
 }
-
-fn(1, 2, 3); //> 6
-fn(10, "B", 20); //> error All arguments must be numbers.
+// console.log(isNumber([1,2,3]))
+console.log(isNumber([10, "B", 20]))
